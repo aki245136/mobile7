@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no" />
 		<title></title>
 		<style>
 			.box{
@@ -21,13 +21,13 @@
 		var hs new Hammer(box);
 		hs.get('pinch').set({enable:true});
 		var sc=1;
-		hs.on("pinout",function(){
+		hs.on("pinchout",function(){
 			if(sc<3){
 				sc+=0.01;
 			}
 			box.style.webkitTransform="scale("+sc+")";
 		})
-		hs.on("pinin",function(){
+		hs.on("pinchin",function(){
 			if(sc>0.1){
 				sc-=0.01;
 			}
