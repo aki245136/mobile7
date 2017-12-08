@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no" />
+		<title></title>
+		<script src="hammer.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/index.css"/>
+	</head>
+	<body>
+		<div id="box">
+			<div id="move">
+				<div>111</div>
+				<div>222</div>
+				<div>333</div>
+				<div>444</div>
+			</div>
+		</div>
+	</body>
+	<script>
+		var box=document.getElementById('box');
+		var move=document.getElementById('move');
+		var divs=move.getElementsByTagName('div');
+		var hs=new Hammer(box);
+		var index=0;
+		hs.on("swipeleft",function(){
+			index++;
+			if(index==divs.length){
+				index=divs.length-1;
+			}
+			move.style.webkitTransform="translate3d(-"+index*100+"%,0,0)";
+		})
+		hs.on("swiperight",function(){
+			index--;
+			if(index<0){
+				index=0;
+			}
+			move.style.webkitTransform="translate3d(-"+index*100+"%,0,0)"
+		})
+	</script>
+</html>
