@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title></title>
+		<style>
+			.box{
+				width:200px;
+				height:200px;
+				background: #CCCCCC;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div id="box" class="box"></div>
+	</body>
+	<script type="text/javascript">
+		var box=document.getElementById('box');
+		var hs new Hammer(box);
+		hs.get('pinch').set({enable:true});
+		var sc=1;
+		hs.on("pinout",function(){
+			if(sc<3){
+				sc+=0.01;
+			}
+			box.style.webkitTransform="scale("+sc+")";
+		})
+		hs.on("pinin",function(){
+			if(sc>0.1){
+				sc-=0.01;
+			}
+			box.style.webketTransform="scale("+sc+")";
+		})
+	</script>
+</html>
